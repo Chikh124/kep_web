@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task1</title>
+</head>
+<body>
+    <p>1. Можна розрахувати різницю між двома датами. Наприклад, ми маємо сьогоднішню
+        дату і дату початку нового року. Для того, щоб порахувати різницю, можна використовувати
+        метод getTime() для кожної зі змінних або просто відняти одну змінну-екземпляр класу Date
+        від іншої:</p>
+    <script>
+        let today = new Date();
+        let newYearDate = new Date(today.getFullYear() + 1, 0, 1);
+        document.write('<p> today: ' + today.toLocaleString() + '</p>');
+        document.write('<p> newYearDate: ' + newYearDate.toLocaleString() + '</p>');
+        document.write('<p> newYearDate today: ' + (newYearDate - today) + '</p>');
+        document.write('<p> newYearDate.getTime() today.getTime(): ' + (newYearDate.getTime() - today.getTime()) + '</p>');
+    </script>
+    <p>Тепер порахуємо, скільки часу залишилося до Нового року, використовуючи змінні зі
+        скрипту вище і знання про те, що в добі 24 години, годині 60 хвилин, хвилині - 60 секунд, а в
+        секунді 1000 мілісекунд.</p>
+        <script>
+            let msDiff = newYearDate - today;
+            days = Math.floor(msDiff / (24 * 60 * 60 * 1000));
+            hours = Math.floor((msDiff / (1000 * 60 * 60)) / 24);
+            mins = Math.floor((msDiff / (1000 * 60)) / 60);
+            secs = Math.floor((msDiff / 1000) / 60);
+            document.write('<p> До Нового року: ' + days + ' днів, ' + hours + ' годин, ' + mins + ' хвилин, ' + secs + ' секунд.</p>');
+        </script>    
+</body>
+</html>

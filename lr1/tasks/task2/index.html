@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2</title>
+</head>
+<body>
+    <p>Змініть приклад так, щоб при наведенні курсора миші на посилання, виконувалася
+        б процедура, що виводить у вікно браузера фразу "Hello, word"!.</p>
+    <h1>JavaScript Test</h1>
+    <hr>
+    <a href="#" onmouseover="showHello()">Select me!</a>
+    <script>
+    function showHello() {
+        var helloElement = document.createElement("p");
+        helloElement.textContent = "Hello, world!";
+
+        var link = document.querySelector("a");
+        link.parentNode.insertBefore(helloElement, link.nextSibling);
+    }
+    </script>
+</body>
+</html>

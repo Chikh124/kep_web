@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task8</title>
+</head>
+<body>
+    <p>Напишіть скрипт, який запитує номер місяця і виводить назву пори року.</p>
+    <script>
+        var monthNumber = parseInt(prompt('введіть номер місяця:'));
+        if (!isNaN(monthNumber) && monthNumber >= 1 && monthNumber <= 12) {
+            var season;
+            if (monthNumber >= 3 && monthNumber <= 5) {
+                season = 'весна';
+            } else if (monthNumber >= 6 && monthNumber <= 8) {
+                season = 'літо';
+            } else if (monthNumber >= 9 && monthNumber <= 11) {
+                season = 'осінь';
+            } else {
+                season = 'зима';
+            }
+            alert('Пора року: ' + season);
+        } else {
+            alert('введіть коректний номер місяця (від 1 до 12).');
+        }
+    </script>    
+</body>
+</html>

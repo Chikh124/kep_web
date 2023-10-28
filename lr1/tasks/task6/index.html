@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task6</title>
+</head>
+<body>
+    <p>Написати скрипт, що реалізовує складання двох чисел по клацанню на кнопці.</p>
+    <input type="text" id="number1" placeholder="Введіть число">
+    <input type="text" id="number2" placeholder="Введіть число два">
+    <button id="calculateButton">Скласти</button>
+    <p id="result"></p>
+    <script>
+        document.getElementById('calculateButton').addEventListener('click', function() {
+            var num1 = parseFloat(document.getElementById('number1').value);
+            var num2 = parseFloat(document.getElementById('number2').value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                var sum = num1 + num2;
+                document.getElementById('result').textContent = 'Результат: ' + sum;
+            } else {
+                alert('введіть коректні числа.');
+            }
+        });
+    </script>    
+</body>
+</html>

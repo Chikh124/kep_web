@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task7</title>
+</head>
+<body>
+    <p>17. Дано тривимірний масив з числами, наприклад [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]. Знайдіть суму елементів цього масиву. Масив, звичайно ж, може бути довільним.</p>
+    <script>
+        var array3D = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
+        var sum = 0;
+        for (var i = 0; i < array3D.length; i++) {
+            for (var j = 0; j < array3D[i].length; j++) {
+                for (var k = 0; k < array3D[i][j].length; k++) {
+                    sum += array3D[i][j][k];
+                }
+            }
+        }
+        document.write("Сума елементів: " + sum);
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2</title>
+</head>
+<body>
+    <p>2. Дата у локальному форматі</p>
+    <script>
+        let today = new Date();
+        let options = {
+        era: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        weekday: 'long',
+        timezone: 'UTC',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        };
+        document.write(`<p>${today.toLocaleString('ar-EG')}</p>`);
+        document.write(`<p>${today.toLocaleString('ar-EG', options)}</p>`);
+        document.write(`<p>${today.toLocaleString('en-US')}</p>`);
+        document.write(`<p>${today.toLocaleString('en-GB')}</p>`);
+        document.write(`<p>${today.toLocaleString('en-GB', options)}</p>`);
+        document.write(`<p>${today.toLocaleString('uk-UA', options)}</p>`);
+    </script>
+    <p>2. Змініть параметри і ще раз виведіть сьогоднішню дату кількома мовами:</p>
+    <script>
+        let today2 = new Date();
+        let options2 = {
+            year: '2-digit',
+            month: 'short',
+            day: '2-digit',
+            weekday: 'short',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+        };
+        document.write(`<p>${today2.toLocaleString('ar-EG', options2)}</p>`);
+        document.write(`<p>${today2.toLocaleString('en-GB', options2)}</p>`);
+        document.write(`<p>${today2.toLocaleString('ru-RU', options2)}</p>`);        
+        document.write(`<p>${today2.toLocaleString('uk-UA', options2)}</p>`);
+    </script>
+</body>
+</html>

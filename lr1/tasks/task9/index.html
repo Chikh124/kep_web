@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task9</title>
+</head>
+<body>
+    <p>Напишіть скрипт, який відображує діалогове вікно з кнопками "Ок" і "Відміна"
+        (функція confirm) і виводить у вікно браузеру повідомлення про те, яка з кнопок
+        була натиснута (використовуйте конструкцію if(confirm("Повідомлення")) ..)</p>
+        <script>
+            var userResponse = confirm("Натисніть 'Ок' або 'Скасувати'");
+            if (userResponse) {
+                alert("натиснуто 'Ок'");
+            } else {
+                alert("натиснуто 'Скасувати'");
+            }
+        </script>        
+</body>
+</html>

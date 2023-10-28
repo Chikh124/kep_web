@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task6</title>
+</head>
+<body>
+    <p>16. Зробіть функцію arrayFill, яка буде заповнювати масив заданими значеннями. Першим параметром функція приймає значення, яким заповнювати масив, а другим - скільки елементів має бути в масиві. Приклад: arrayFill('x', 5) зробить масив ['x', 'x', 'x', 'x', 'x'].</p>
+    <script>
+        function arrayFill(value, count) {
+            var result = [];
+            for (var i = 0; i < count; i++) {
+                result.push(value);
+            }
+            return result;
+        }
+        var filledArray = arrayFill('x', 5);
+        document.write(filledArray);
+    </script>
+</body>
+</html>

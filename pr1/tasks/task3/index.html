@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3</title>
+</head>
+<body>
+    <p>13. В змінній date лежить дата в форматі '2025-12-31'. Перетворіть цю дату в формат '31 / 12 / 2025'.</p>
+    <script>
+        var date = '2025-12-31';
+        var parts = date.split('-');
+        var formattedDate = parts[2] + ' / ' + parts[1] + ' / ' + parts[0];
+        document.write(formattedDate);
+    </script>
+</body>
+</html>

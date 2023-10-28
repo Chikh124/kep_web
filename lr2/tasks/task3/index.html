@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task3</title>
+</head>
+<body>
+    <p>3. Спробуйте використати метод getDay() для того, щоб вивести, в якому місяці вказаного року
+        у нас 13-е число місяця припаде на п'ятницю.</p>
+        <div class="test">
+            <select id="year">
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+            </select>
+            <div id="output13"></div>
+          </div>              
+    <script>
+        year.addEventListener('change', friday13);
+
+        function friday13 (year) {
+            year = this.value || year;
+            let str = '';
+            for (let i = 0; i<12; i++) {
+                let d = new Date(year, i, 13);
+                if (d.getDay() == 5)
+                str += `<p>П'ятниця, ${d.toLocaleDateString()}</p>`;
+                }
+            output13.innerHTML = str;
+        }
+    </script>
+</body>
+</html>
