@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chikh</title>
+</head>
+<body>
+    <h1>Конвертер температури</h1>
+
+    <label for="fahrenheitInput">Температура за Фаренгейтом:</label>
+    <input type="text" id="fahrenheitInput" oninput="convertToCelsius()" placeholder="Введіть температуру в °F"><br>
+
+    <label for="celsiusInput">Температура за Цельсієм:</label>
+    <input type="text" id="celsiusInput" oninput="convertToFahrenheit()" placeholder="Введіть температуру в °C"><br>
+
+    <script>
+        function convertToFahrenheit() {
+            var celsius = parseFloat(document.getElementById('celsiusInput').value);
+            var fahrenheit = (celsius * 9/5) + 32;
+            document.getElementById('fahrenheitInput').value = fahrenheit.toFixed(2);
+        }
+
+        function convertToCelsius() {
+            var fahrenheit = parseFloat(document.getElementById('fahrenheitInput').value);
+            var celsius = (fahrenheit - 32) * 5/9;
+            document.getElementById('celsiusInput').value = celsius.toFixed(2);
+        }
+    </script>  
+</body>
+</html>

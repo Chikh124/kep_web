@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Перевірка знань таблиці множення</h1>
+    
+    <p>Загальний рахунок: <span id="score">0</span>% (<span id="correctCount">0</span> правильних відповідей з <span id="totalCount">0</span>)</p>
+
+    <button id="nextTask" onclick="generateTask()">Наступне завдання</button>
+
+    <p id="task">Завдання: </p>
+
+    <form id="answerForm">
+        <input type="radio" name="answer" id="option1" value="option1">
+        <label for="option1" id="label1"></label><br>
+        <input type="radio" name="answer" id="option2" value="option2">
+        <label for="option2" id="label2"></label><br>
+        <input type="radio" name="answer" id="option3" value="option3">
+        <label for="option3" id="label3"></label><br>
+    </form>
+    
+    <button id="check" onclick="checkAnswer()">Перевірити</button>
+
+    <p id="result"></p>
+
+    <script>
+        var score = 0;
+        var correctCount = 0;
+        var totalCount = 0;
+        var currentTask;
+
+        function generateTask() {
+            var num1 = Math.floor(Math.random() * 10) + 1;
+            var num2 = Math.floor(Math.random() * 10) + 1;
+            currentTask = num1 * num2;
+            document.getElementById("task").textContent = "Завдання: " + num1 + " x " + num2;
+            
+            var options = generateRandomOptions(currentTask);
+            document.getElementById("label1").textContent = options[0];
+            document.getElementById("label2").textContent = options[1];
+            document.getElementById("label3").textContent = options[2];
+            
+            document.getElementById("option1").value = options[0];
+            document.getElementById("option2").value = options[1];
+            document.getElementById("option3").value = options[2];
+        }
+
+        function generateRandomOptions(correctAnswer) {
+            var options = [correctAnswer];
+            while (options.length < 3) {
+                var randomOption = Math.floor(Math.random() * 100);
+                if (options.indexOf(randomOption) === -1) {
+                    options.push(randomOption);
+                }
+            }
+            options.sort(function() { return 0.5 - Math.random() });
+            return options;
+        }
+
+        function checkAnswer() {
+            var selectedOption = document.querySelector('input[name="answer"]:checked');
+            if (selectedOption) {
+                var userAnswer = parseInt(selectedOption.value);
+                if (userAnswer === currentTask) {
+                    correctCount++;
+                    document.getElementById("result").textContent = "Правильно!";
+                } else {
+                    document.getElementById("result").textContent = "Неправильно. Правильна відповідь: " + currentTask;
+                }
+                totalCount++;
+                score = (correctCount / totalCount * 100).toFixed(2);
+                document.getElementById("score").textContent = score + "%";
+                document.getElementById("correctCount").textContent = correctCount;
+                document.getElementById("totalCount").textContent = totalCount;
+                selectedOption.checked = false;
+            } else {
+                document.getElementById("result").textContent = "Будь ласка, виберіть відповідь.";
+            }
+        }
+
+        generateTask(); // Генеруємо перше завдання при завантаженні сторінки
+    </script>
+</body>
+</html>

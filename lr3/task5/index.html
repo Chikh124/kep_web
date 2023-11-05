@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проста CAPTCHA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500&display=swap');
+        
+        .captcha-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .pixel {
+            font-family: 'Pixelify Sans', sans-serif;
+            font-size: 80px; /* Розмір шрифта капчі */
+            display: inline;
+            color: #000; /* Колір тексту CAPTCHA */
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            width: 150px;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+
+        #captchaMessage {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h3>CAPTCHA:</h3>
+    <div class="captcha-container">
+        <div class="captcha" id="captcha"></div>
+        <input type="text" id="captchaInput" placeholder="Введіть число">
+        <button onclick="checkCaptcha()">Перевірити</button>
+        <p id="captchaMessage"></p>
+    </div>
+
+    <script>
+        // Функція для генерації випадкового числа заданої довжини
+        function generateRandomNumber(length) {
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += Math.floor(Math.random() * 10);
+            }
+            return result;
+        }
+
+        // Функція для створення CAPTCHA
+        function createCaptcha(digits) {
+            const captchaElement = document.getElementById("captcha");
+            const randomNumber = generateRandomNumber(digits);
+            captchaElement.innerHTML = '';
+
+            for (let i = 0; i < randomNumber.length; i++) {
+                const digitSpan = document.createElement('span');
+                digitSpan.className = 'pixel';
+                digitSpan.textContent = randomNumber[i];
+                captchaElement.appendChild(digitSpan);
+            }
+        }
+
+        // Функція для перевірки правильності введення CAPTCHA
+        function checkCaptcha() {
+            const captchaElement = document.getElementById("captcha");
+            const captchaInput = document.getElementById("captchaInput");
+            const message = document.getElementById("captchaMessage");
+
+            if (captchaInput.value === captchaElement.textContent.replace(/\s/g, '')) {
+                message.textContent = "ЄС СЕР Ю ОЛЛ РАЙТ!";
+                message.style.color = 'green';
+            } else {
+                message.textContent = "Помилка, Спробуйте ще раз.";
+                message.style.color = 'red';
+            }
+
+            // Ініціалізуємо нову CAPTCHA після перевірки
+            createCaptcha(2);
+        }
+
+        // Ініціалізуємо CAPTCHA з 2 цифр
+        createCaptcha(2);
+    </script>
+</body>
+</html>

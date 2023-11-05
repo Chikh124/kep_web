@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фото-ротатор</title>
+    <style>
+        .photo-rotator-container {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-rotator-image {
+            width: 500px;
+            height: 500px;
+            margin:0 auto;
+        }
+
+        .nav-buttons-container {
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+
+        .description {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .butti{
+            display: flex;
+            justify-content: space-between;
+            width: 700px;
+            position:relative ;
+            top: 250px;
+            margin:0 auto;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="butti">
+        <button id="nextButton" class="nav-button">Вперед</button>
+        <button id="prevButton" class="nav-button1">Назад</button>
+    </div>
+    <div id="rotator" class="photo-rotator-container">
+        <h2>Фотографія <span id="imageNumber">x</span> з <span id="totalImages">x</span></h2>
+        <img id="photo" class="photo-rotator-image" src="">
+        <div class="description">
+            <p id="title">Заголовок</p>
+            <p id="description">Опис фото</p>
+        </div>
+    </div>
+
+    <script>
+        function initPhotoRotator(divId, imagesArray) {
+            const container = document.getElementById(divId);
+            const imageCount = imagesArray.length;
+            let currentIndex = 0;
+
+            const imageElement = document.getElementById('photo');
+            const imageNumberElement = document.getElementById('imageNumber');
+            const totalImagesElement = document.getElementById('totalImages');
+            const titleElement = document.getElementById('title');
+            const descriptionElement = document.getElementById('description');
+
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+
+            function updatePhotoRotator() {
+                const currentImage = imagesArray[currentIndex];
+                imageElement.src = currentImage.path;
+                imageNumberElement.textContent = currentIndex + 1;
+                totalImagesElement.textContent = imageCount;
+                titleElement.textContent = currentImage.title;
+                descriptionElement.textContent = currentImage.description;
+
+                if (currentIndex === 0) {
+                    prevButton.style.display = 'none';
+                } else {
+                    prevButton.style.display = 'block';
+                }
+                if (currentIndex === imageCount - 1) {
+                    nextButton.style.display = 'none';
+                } else {
+                    nextButton.style.display = 'block';
+                }
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updatePhotoRotator();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < imageCount - 1) {
+                    currentIndex++;
+                    updatePhotoRotator();
+                }
+            });
+
+            updatePhotoRotator();
+        }
+
+        const imagesArray = [
+            {
+                path: 'images/001.jpg',
+                title: 'ауд. 108',
+                description: 'Parfumes amazing',
+            },
+            {
+                path: 'images/002.jpg',
+                title: 'ауд. 103-а',
+                description: 'Parfumes amazing',
+            },
+            {
+                path: 'images/003.jpg',
+                title: 'ауд. 104',
+                description: 'Parfumes amazing',
+            },
+        ];
+
+        initPhotoRotator('rotator', imagesArray);
+    </script>
+</body>
+</html>

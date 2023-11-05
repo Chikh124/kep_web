@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chikh</title>
+</head>
+<body>
+    <h1>Перевірка знань таблиці множення</h1>
+    
+    <p>Загальний рахунок: <span id="score">0</span>% (<span id="correctCount">0</span> правильних відповідей з <span id="totalCount">0</span>)</p>
+
+    <button id="nextTask" onclick="generateTask()">Наступне завдання</button>
+
+    <p id="task">Завдання: </p>
+
+    <input type="text" id="answer" placeholder="Введіть відповідь">
+    
+    <button id="check" onclick="checkAnswer()">Перевірити</button>
+
+    <p id="result"></p>
+
+    <script>
+        var score = 0;
+        var correctCount = 0;
+        var totalCount = 0;
+        var currentTask;
+
+        function generateTask() {
+            var num1 = Math.floor(Math.random() * 10) + 1;
+            var num2 = Math.floor(Math.random() * 10) + 1;
+            currentTask = num1 * num2;
+            document.getElementById("task").textContent = "Завдання: " + num1 + " x " + num2;
+        }
+
+        function checkAnswer() {
+            var userAnswer = parseInt(document.getElementById("answer").value);
+            if (userAnswer === currentTask) {
+                correctCount++;
+                document.getElementById("result").textContent = "Правильно!";
+            } else {
+                document.getElementById("result").textContent = "Неправильно. Правильна відповідь: " + currentTask;
+            }
+            totalCount++;
+            score = (correctCount / totalCount * 100).toFixed(2);
+            document.getElementById("score").textContent = score + "%";
+            document.getElementById("correctCount").textContent = correctCount;
+            document.getElementById("totalCount").textContent = totalCount;
+        }
+
+        generateTask(); // Генеруємо перше завдання при завантаженні сторінки
+    </script>
+</body>
+</html>
