@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chikh</title>
+</head>
+<body>
+<h1>Task2</h1>
+<div id="clock"></div>
+>
+<button id="updateButton">Оновити час</button>
+
+<script>
+// Функція для оновлення годинника
+function updateClock() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+  
+  // Додавання "0" до значень менше 10
+  const formattedHours = hours < 10 ? "0" + hours : hours;
+  const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+  const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
+  
+  document.getElementById("clock").innerHTML = formattedHours + ":" + formattedMinutes + ":" + formattedSeconds;
+}
+
+// Оновлення годинника при завантаженні сторінки
+updateClock();
+
+document.getElementById("updateButton").addEventListener("click", function() {
+  updateClock();
+});
+</script>
+</body>
+</html>

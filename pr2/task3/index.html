@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chikh</title>
+</head>
+<body>
+<h1>Task3</h1>
+<div id="printer-container"></div>
+
+
+<script>
+function printTextWithEffect(text) {
+  let index = 0;
+  const container = document.getElementById("printer-container");
+  const intervalId = setInterval(function() {
+    if (index < text.length) {
+      container.textContent += text.charAt(index);
+      index++;
+    } else {
+      clearInterval(intervalId); // Зупинити setInterval, коли весь текст виведено
+    }
+  }, 100); // Затримка в мілісекундах між символами
+}
+
+function startPrinting() {
+  document.getElementById("printer-container").textContent = ''; // Очистити вміст контейера
+  const inputText = prompt("Введіть текст для виведення:");
+  if (inputText) {
+    printTextWithEffect(inputText);
+  }
+}
+
+</script>
+<button onclick="startPrinting()">Почати друк</button>
+</body>
+</html>
