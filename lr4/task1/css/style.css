@@ -1,0 +1,102 @@
+#tabs .tab {
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+}
+
+#tabs .whiteborder {
+    border: 1px solid #707070;
+    border-bottom: 1px solid #fff;
+    border-radius: 3px 3px 0 0;
+}
+
+#tabs .tabContent {
+    width: 500px;
+    border: 1px solid #707070;
+    position: relative;
+    top: -1px;
+    z-index: 1;
+    padding: 10px;
+    border-radius: 0 0 3px 3px;
+}
+
+#tabs .hide {
+    display: none;
+}
+
+#tabs .show {
+    display: block;
+}
+
+
+
+#block {
+    width: 100px;
+    height: 100px;
+    background: green;
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+}
+
+
+
+#text, #text2{
+    font-size: 26px;
+    padding: 20px;
+  }
+  #textContainer {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.square1, .square2 {
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .square1 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: blue;
+  }
+
+  .square2 {
+    width: 200px;
+    height: 200px;
+    background: red;
+  }
+
+  #zIndexForm {
+    margin-bottom: 20px;
+  }
+
+  #cssOutput {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+  .square3 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgb(0, 255, 140);
+  }
+
+  .square4 {
+    width: 200px;
+    height: 200px;
+    background: red;
+  }
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }

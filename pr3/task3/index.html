@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <title>Document</title>
+</head>
+<body>
+  <div id="field">
+    <img id="ball" src="media/Ball.png" alt="Ball Image">
+</div>
+    <script>
+ const field = document.getElementById('field');
+    const ball = document.getElementById('ball');
+
+    field.addEventListener('click', moveBall);
+
+    function moveBall(event) {
+        const fieldRect = field.getBoundingClientRect();
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+
+        const ballX = mouseX - fieldRect.left - ball.clientWidth / 2;
+        const ballY = mouseY - fieldRect.top - ball.clientHeight / 2;
+
+        const maxX = field.clientWidth - ball.clientWidth;
+        const maxY = field.clientHeight - ball.clientHeight;
+
+        ball.style.transition = 'transform 0.2s ease-in-out';
+        ball.style.transform = `translate(${Math.min(Math.max(ballX, 0), maxX)}px, ${Math.min(Math.max(ballY, 0), maxY)}px)`;
+    }
+
+    ball.addEventListener('transitionend', () => {
+        ball.style.transition = 'none'; // Зупиняємо анімацію після завершення руху
+    });
+    </script>
+</body>
+</html>

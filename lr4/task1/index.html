@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chikh chikh</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="tabs">
+        <div class="tab whiteborder">border-radius</div>
+        <div class="tab">text-indent</div>
+        <div class="tab">text-shadow</div>
+        <div class="tabContent">
+            <div>Верхній лівий радіус:
+                <input type="range" id="rtl" min="0" max="100" value="0" oninput="generate()">
+                <input type="text" id="ttl" value="0">
+            </div>
+            <div>Верхній правий радіус:
+                <input type="range" id="rtr" min="0" max="100" value="0" oninput="generate()">
+                <input type="text" id="ttr" value="0">
+            </div>
+            <div>Нижній лівий радіус:
+                <input type="range" id="rbl" min="0" max="100" value="0" oninput="generate()">
+                <input type="text" id="tbl" value="0">
+            </div>
+            <div>Нижній правий радіус:
+                <input type="range" id="rbr" min="0" max="100" value="0" oninput="generate()">
+                <input type="text" id="tbr" value="0">
+            </div>    
+            <div id="block"></div>
+            <textarea id="cssCode" readonly></textarea>            
+        </div>
+
+        <div class="tabContent"> 
+        <form id="zIndexForm">
+            <label for="zIndexValue">Enter z-index value for .square1:</label>
+            <input type="number" id="zIndexValue" name="zIndexValue" min="-9999" max="9999" step="1" value="-1" oninput="generateCSS()">
+          </form>
+        
+          <div class="square1" id="square1"></div>
+          <div class="square2"></div>
+        
+          <textarea id="cssOutput" readonly></textarea>
+        </div>
+        
+        
+        
+        
+        
+        <div class="tabContent">
+            <div class="flex-container">
+                <div class="square3" id="square3"></div>
+                <div class="square4" id="square4"></div>
+              </div>
+            
+              <div class="flex-form" id="flexForm">
+                <label for="flexValue">Enter flex value for .square3:</label>
+                <input type="number" id="flexValue" name="flexValue" min="0" max="10" step="0.1" value="1" oninput="generateCSS()">
+              </div>
+            
+              <textarea class="output-textarea" id="flexOutput" readonly></textarea>
+        </div>
+        
+    <script src="script/script.js"></script>
+</body>
+</html>

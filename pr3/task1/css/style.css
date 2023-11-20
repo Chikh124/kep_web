@@ -1,0 +1,20 @@
+#messages {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .message-content {
+    background-color: rgb(196, 222, 196); /* Зелений фон для блоку повідомлення */
+    color: black; /* Білий колір тексту */
+    padding: 10px; /* Відступи всередині блоку повідомлення */
+    margin-bottom: 10px;
+  }
+  
+  .hide-btn {
+    background-color: transparent; /* Прозорий фон для кнопки */
+    color: red; /* Червоний колір тексту кнопки */
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  

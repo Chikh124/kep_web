@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="messages">
+        <li>
+          <div class="message-content">
+            <p class="message-title">Android</p>
+            <p>Опис Опис Опис Опис Опис Опис Опис Опис <br>
+                Опис Опис Опис Опис Опис Опис Опис Опис <br>
+                Опис Опис Опис Опис Опис Опис Опис Опис</p>
+            <button class="hide-btn">[x]</button>
+          </div>
+        </li>
+        <li>
+          <div class="message-content">
+            <p class="message-title">Android</p>
+            <p>Опис Опис Опис Опис Опис Опис Опис Опис <br>
+                Опис Опис Опис Опис Опис Опис Опис Опис <br>
+                Опис Опис Опис Опис Опис Опис Опис Опис</p>
+            <button class="hide-btn">[x]</button>
+          </div>
+        </li>
+        <li>
+          <div class="message-content">
+            <p class="message-title">Android</p>
+            <p>Опис Опис Опис Опис Опис Опис Опис Опис <br>
+                Опис Опис Опис Опис Опис Опис Опис Опис <br>
+                Опис Опис Опис Опис Опис Опис Опис Опис</p>
+            <button class="hide-btn">[x]</button>
+          </div>
+        </li>
+      </ul>
+    <script>
+        // Отримуємо всі кнопки приховування за допомогою querySelectorAll
+const hideButtons = document.querySelectorAll('.hide-btn');
+
+// Додаємо обробник події для кожної кнопки
+hideButtons.forEach(button => {
+  button.addEventListener('click', hideMessage);
+});
+
+// Функція, яка приховує батька кнопки (тобто батьківський div)
+function hideMessage(event) {
+  const button = event.target;
+  const messageDiv = button.parentNode;
+
+  // Приховуємо батька
+  messageDiv.style.display = 'none';
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <title>Document</title>
+</head>
+<body>
+  <div class="carousel-container">
+    <ul class="carousel-list">
+      <li><img src="media/image1.jpg" alt="Image 1"></li>
+      <li><img src="media/image2.jpg" alt="Image 2"></li>
+      <li><img src="media/image3.jpg" alt="Image 3"></li>
+      <li><img src="media/image2.jpg" alt="Image 3"></li>
+      <li><img src="media/image2.jpg" alt="Image 3"></li>
+      <li><img src="media/image1.jpg" alt="Image 3"></li>
+      <li><img src="media/image3.jpg" alt="Image 3"></li>
+      <!-- Додайте більше елементів, якщо потрібно -->
+    </ul>
+    <button class="prev-button">&lt;</button>
+    <button class="next-button">&gt;</button>
+  </div>
+    <script>
+ document.addEventListener('DOMContentLoaded', function () {
+  const prevButton = document.querySelector('.prev-button');
+  const nextButton = document.querySelector('.next-button');
+  const carouselList = document.querySelector('.carousel-list');
+
+  let currentPosition = 0;
+  const itemWidth = document.querySelector('.carousel-list li').offsetWidth;
+  const totalItems = document.querySelectorAll('.carousel-list li').length;
+
+  prevButton.addEventListener('click', function () {
+    currentPosition += itemWidth;
+    updateCarousel();
+  });
+
+  nextButton.addEventListener('click', function () {
+    currentPosition -= itemWidth;
+    updateCarousel();
+  });
+
+  function updateCarousel() {
+    // Вимикаємо стрілку "Вліво" при досягненні крайнього лівого положення
+    prevButton.disabled = currentPosition === 0;
+
+    // Вимикаємо стрілку "Вправо" при досягненні крайнього правого положення
+    nextButton.disabled = currentPosition === -(itemWidth * (totalItems - 3));
+
+    carouselList.style.transform = `translateX(${currentPosition}px)`;
+  }
+});
+
+
+    </script>
+</body>
+</html>

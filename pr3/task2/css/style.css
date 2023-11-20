@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 800px; /* Збільште ширину контейнера для видимості трьох фото в ряду */
+  margin: 20px auto;
+}
+
+.carousel-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Використовуємо flexbox для легшого розміщення елементів */
+  transition: transform 0.3s ease;
+}
+
+.carousel-list li {
+  flex: 0 0 266.66px; /* Не дозволяємо змінювати розмір, встановлюємо розмір на 266.66px */
+  box-sizing: border-box;
+}
+
+.carousel-list img {
+  display: block;
+  width: 600px;
+  height: 600px;
+  padding-right:10px ;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-button {
+  left: 0;
+}
+
+.next-button {
+  right: 0;
+}
